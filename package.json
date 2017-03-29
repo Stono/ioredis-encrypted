@@ -1,0 +1,43 @@
+{
+  "name": "ioredis-encrypted",
+  "description": "A wrapper for ioredis that encrypts and decrypts data stored.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Stono/ioredis-encrypted",
+  "author": {
+    "name": "Karl Stoney",
+    "email": "me@karlstoney.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:Stono/ioredis-encrypted.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Stono/ioredis-encrypted/issues"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "scripts": {
+    "test": "./node_modules/grunt/bin/grunt mochaTest"
+  },
+  "devDependencies": {
+    "deride": "^1.1.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-istanbul": "^5.0.2",
+    "grunt-mocha-test": "^0.13.2",
+    "grunt-notify": "0.4.5",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "mocha-jenkins-reporter": "^0.3.7",
+    "should": "^11.2.0"
+  },
+  "keywords": [],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ioredis": "^2.5.0",
+    "node-crypt": "^0.1.1"
+  }
+}
