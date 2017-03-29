@@ -39,9 +39,9 @@ If you don't specify the second argument in the require line, you'll get the def
 Transparent to your application:
 ```
 $ node
-> let Redis = require('ioredis-encrypted')('password');
+> const Redis = require('ioredis-encrypted')('password');
 undefined
-> let redis = new Redis();
+> const redis = new Redis();
 undefined
 > redis.set('akey', 'a value');
 undefined
@@ -60,7 +60,7 @@ $ redis-cli
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-0.1.0 Initial Release
+ - 0.1.0 Initial Release
 
 ## License
 Copyright (c) 2017 Karl Stoney

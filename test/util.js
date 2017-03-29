@@ -1,8 +1,8 @@
 'use strict';
-let should = require('should');
-let deride = require('deride');
+const should = require('should');
+const deride = require('deride');
 
-let util = require('../lib/util');
+const util = require('../lib/util');
 
 describe('Util', () => {
   describe('Args', () => {
@@ -35,19 +35,19 @@ describe('Util', () => {
 
   describe('Default Value', () => {
     it('should set a default value from a value', () => {
-      let def = util.defaultValue(null, 1);
+      const def = util.defaultValue(null, 1);
       should(def).eql(1);
     });
     it('should set a default value from a function', () => {
-      let func = deride.func();
+      const func = deride.func();
       func.setup.toReturn(1);
-      let def = util.defaultValue(null, func);
+      const def = util.defaultValue(null, func);
       func.expect.called.once();
       should(def).eql(1);
     });
     it('default values from a function should not be evaluated unless needed', () => {
-      let func = deride.func();
-      let def = util.defaultValue(1, func);
+      const func = deride.func();
+      const def = util.defaultValue(1, func);
       func.expect.called.never();
       should(def).eql(1);
     });

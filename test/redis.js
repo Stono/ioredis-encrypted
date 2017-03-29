@@ -1,8 +1,8 @@
 'use strict';
-let should = require('should');
-let Crypto = require('node-crypt');
-let EncryptedRedis = require('../')('password');
-let Redis = require('ioredis');
+const should = require('should');
+const Crypto = require('node-crypt');
+const EncryptedRedis = require('../')('password');
+const Redis = require('ioredis');
 
 describe('Redis', () => {
   describe('Encryption', () => {
@@ -26,7 +26,7 @@ describe('Redis', () => {
     });
 
     it('set/get <key> <value> should store an encrypted value', done => {
-      let testValue = Date.now().toString();
+      const testValue = Date.now().toString();
       encryptedClient.set('test', testValue, () => {
         client.get('test', (err, result) => {
           should.ifError(err);
@@ -41,7 +41,7 @@ describe('Redis', () => {
     });
 
     it('hset/hget <hash> <key> <value> should store an encrypted value', done => {
-      let testValue = Date.now().toString();
+      const testValue = Date.now().toString();
       encryptedClient.hset('hashname', 'test', testValue, () => {
         client.hget('hashname', 'test', (err, result) => {
           should.ifError(err);
@@ -56,7 +56,7 @@ describe('Redis', () => {
     });
 
     it('hgetall should return unencrypted values', done => {
-      let testValue = Date.now().toString();
+      const testValue = Date.now().toString();
       encryptedClient.hset('hashname', 'test', testValue, () => {
         client.hget('hashname', 'test', err => {
           should.ifError(err);
