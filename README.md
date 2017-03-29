@@ -13,6 +13,8 @@ This module is currently under active development, subsequently only a small amo
   - hset/hget
   - hgetall
 
+All other commands __still work__, they blind proxy through to ioredis, they just won't store encrypted data.
+
 More will be coming, when I have time.  Open to pull requests too ;)
 
 ## Examples
@@ -37,7 +39,7 @@ If you don't specify the second argument in the require line, you'll get the def
 Transparent to your application:
 ```
 $ node
-> let Redis = require('./')('password');
+> let Redis = require('ioredis-encrypted')('password');
 undefined
 > let redis = new Redis();
 undefined
