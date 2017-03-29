@@ -1,7 +1,7 @@
 {
   "name": "ioredis-encrypted",
   "description": "A wrapper for ioredis that encrypts and decrypts data stored.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/Stono/ioredis-encrypted",
   "author": {
     "name": "Karl Stoney",
@@ -39,6 +39,6 @@
   "dependencies": {
     "ioredis": "^2.5.0",
     "lodash": "^4.17.4",
-    "node-crypt": "^0.1.1"
+    "node-crypt": "^0.1.2"
   }
 }
