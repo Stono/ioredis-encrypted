@@ -1,7 +1,7 @@
 {
   "name": "ioredis-encrypted",
   "description": "A wrapper for ioredis that encrypts and decrypts data stored.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/Stono/ioredis-encrypted",
   "author": {
     "name": "Karl Stoney",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com:Stono/ioredis-encrypted.git"
+    "url": "https://github.com/Stono/ioredis-encrypted"
   },
   "bugs": {
     "url": "https://github.com/Stono/ioredis-encrypted/issues"
