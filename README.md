@@ -7,11 +7,13 @@ A wrapper for [ioredis](https://github.com/luin/ioredis) that transparently encr
 So for starters, install the module with: `npm install ioredis-encrypted`
 
 ## Support
-This module is currently under active development, subsequently only a small amount of redis commands are currently supported:
+**NOTE**: This implementation is limited to a small collection of commands, for my specific requirements.  Sorry, there is only one of me!
 
   - get/set
   - hset/hget
   - hgetall
+  - lpush/lpop
+  - rpush/rpop
 
 All other commands __still work__, they blind proxy through to ioredis, they just won't store encrypted data.
 

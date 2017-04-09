@@ -25,6 +25,40 @@ describe('Redis', () => {
       });
     });
 
+    it('rpush/rpop <key> <value> should store an encrypted value', done => {
+      const testValue = Date.now().toString();
+      encryptedClient.rpush('test', testValue, () => {
+        client.rpop('test', (err, result) => {
+          should.ifError(err);
+          should(result).eql(crypto.encrypt(testValue));
+          encryptedClient.rpush('test', testValue, () => {
+            encryptedClient.rpop('test', (err, result) => {
+              should.ifError(err);
+              should(result).eql(testValue);
+              done();
+            });
+          });
+        });
+      });
+    });
+
+    it('lpush/lpop <key> <value> should store an encrypted value', done => {
+      const testValue = Date.now().toString();
+      encryptedClient.lpush('test', testValue, () => {
+        client.lpop('test', (err, result) => {
+          should.ifError(err);
+          should(result).eql(crypto.encrypt(testValue));
+          encryptedClient.lpush('test', testValue, () => {
+            encryptedClient.lpop('test', (err, result) => {
+              should.ifError(err);
+              should(result).eql(testValue);
+              done();
+            });
+          });
+        });
+      });
+    });
+
     it('set/get <key> <value> should store an encrypted value', done => {
       const testValue = Date.now().toString();
       encryptedClient.set('test', testValue, () => {
