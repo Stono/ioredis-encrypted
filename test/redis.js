@@ -103,5 +103,31 @@ describe('Redis', () => {
       });
     });
 
+    it('pub/sub', done => {
+      const subscriber = new EncryptedRedis();
+      subscriber.subscribe('test', err => {
+        should.ifError(err);
+        encryptedClient.publish('test', 'message');
+      });
+      subscriber.on('message', (channel, msg) => {
+        should(msg).eql('message');
+        subscriber.quit();
+        done();
+      });
+    });
+
+    it('pub/psub', done => {
+      const subscriber = new EncryptedRedis();
+      subscriber.psubscribe('test', err => {
+        should.ifError(err);
+        encryptedClient.publish('test', 'message');
+      });
+      subscriber.on('pmessage', (filter, channel, msg) => {
+        should(msg).eql('message');
+        subscriber.quit();
+        done();
+      });
+    });
+
   });
 });

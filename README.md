@@ -14,6 +14,8 @@ So for starters, install the module with: `npm install ioredis-encrypted`
   - hgetall
   - lpush/lpop
   - rpush/rpop
+  - pub/sub
+  - pub/psub
 
 All other commands __still work__, they blind proxy through to ioredis, they just won't store encrypted data.
 
