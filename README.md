@@ -14,6 +14,7 @@ So for starters, install the module with: `npm install ioredis-encrypted`
   - hgetall
   - lpush/lpop
   - rpush/rpop
+  - lrange
   - pub/sub
   - pub/psub
 

@@ -14,7 +14,9 @@ describe('Redis', () => {
       encryptedClient = new EncryptedRedis();
       client = new Redis();
     });
-
+    beforeEach(done => {
+      client.flushall(done);
+    });
     it('shouldnt bomb on null values', done => {
       client.del('test', () => {
         encryptedClient.get('test', (err, result) => {
@@ -54,6 +56,20 @@ describe('Redis', () => {
               should(result).eql(testValue);
               done();
             });
+          });
+        });
+      });
+    });
+
+    it('lrange', done => {
+      const testValue = Date.now().toString();
+      encryptedClient.lpush('test', testValue, () => {
+        encryptedClient.lpush('test', testValue, () => {
+          encryptedClient.lrange('test', 0, -1, (err, result) => {
+            should.ifError(err);
+            should(result[0]).eql(testValue);
+            should(result[1]).eql(testValue);
+            done();
           });
         });
       });
