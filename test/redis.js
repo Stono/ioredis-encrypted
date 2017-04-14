@@ -6,17 +6,21 @@ const Redis = require('ioredis');
 
 describe('Redis', () => {
   describe('Encryption', () => {
-    let client, encryptedClient, crypto;
+    let client, crypto, encryptedClient;
     before(() => {
       crypto = new Crypto({
         key: 'password'
       });
-      encryptedClient = new EncryptedRedis();
       client = new Redis();
+      encryptedClient = new EncryptedRedis();
     });
     beforeEach(done => {
       client.flushall(done);
     });
+    afterEach(done => {
+      client.flushall(done);
+    });
+
     it('shouldnt bomb on null values', done => {
       client.del('test', () => {
         encryptedClient.get('test', (err, result) => {
@@ -144,6 +148,5 @@ describe('Redis', () => {
         done();
       });
     });
-
   });
 });
