@@ -75,4 +75,17 @@ describe('Pipeline', () => {
       pipelined = true;
     });
   });
+
+  it('should work with callback-less pipeline steps', done => {
+    const pipeline = redis.pipeline();
+    pipeline.rpush('list2', 'item1');
+    pipeline.rpush('list2', 'item2');
+    pipeline.lpop('list2');
+    pipeline.exec((err, results) => {
+      should(results[2]).eql([null, 'item1']);
+      should.ifError(err);
+      done();
+    });
+  });
+
 });
