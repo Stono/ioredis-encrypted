@@ -1,5 +1,8 @@
 'use strict';
-const EncryptedRedis = require('../')('test-encryption-key');
+const key = 'bfa6220e845a8248f65ebbddf753d6bcdbaab404693890f920c663adce2d7ede';
+const hmacKey = 'fdc6de8b925c8e4a120edac298139648e22c31f45d5ab5469ab0d696229338ad';
+
+const EncryptedRedis = require('../')(key, hmacKey);
 const should = require('should');
 
 describe('Pipeline', () => {

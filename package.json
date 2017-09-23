@@ -1,7 +1,7 @@
 {
   "name": "ioredis-encrypted",
   "description": "A wrapper for ioredis that encrypts and decrypts data stored.",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "homepage": "https://github.com/Stono/ioredis-encrypted",
   "author": {
     "name": "Karl Stoney",
@@ -16,29 +16,29 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 8.1.4"
   },
   "scripts": {
     "test": "./node_modules/grunt/bin/grunt mochaTest"
   },
   "devDependencies": {
-    "deride": "^1.1.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-mocha-istanbul": "^5.0.2",
-    "grunt-mocha-test": "^0.13.2",
+    "deride": "1.1.0",
+    "grunt": "1.0.1",
+    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-mocha-istanbul": "5.0.2",
+    "grunt-mocha-test": "0.13.2",
     "grunt-notify": "0.4.5",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "mocha-jenkins-reporter": "^0.3.7",
-    "should": "^11.2.0"
+    "istanbul": "0.4.5",
+    "mocha": "3.2.0",
+    "mocha-jenkins-reporter": "0.3.7",
+    "should": "13.1.0"
   },
   "keywords": [],
   "license": "Apache-2.0",
   "dependencies": {
-    "ioredis": "^2.5.0",
-    "lodash": "^4.17.4",
-    "node-crypt": "^0.1.2"
+    "ioredis": "3.1.4",
+    "lodash": "4.17.4",
+    "node-crypt": "1.0.0"
   }
 }

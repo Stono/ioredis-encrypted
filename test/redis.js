@@ -1,7 +1,9 @@
 'use strict';
 const should = require('should');
 const Crypto = require('node-crypt');
-const EncryptedRedis = require('../')('password');
+const key = 'bfa6220e845a8248f65ebbddf753d6bcdbaab404693890f920c663adce2d7ede';
+const hmacKey = 'fdc6de8b925c8e4a120edac298139648e22c31f45d5ab5469ab0d696229338ad';
+const EncryptedRedis = require('../')(key, hmacKey);
 const Redis = require('ioredis');
 
 describe('Redis', () => {
@@ -9,7 +11,8 @@ describe('Redis', () => {
     let client, crypto, encryptedClient;
     before(() => {
       crypto = new Crypto({
-        key: 'password'
+        key: key,
+        hmacKey: hmacKey
       });
       client = new Redis();
       encryptedClient = new EncryptedRedis();
@@ -36,7 +39,7 @@ describe('Redis', () => {
       encryptedClient.rpush('test', testValue, () => {
         client.rpop('test', (err, result) => {
           should.ifError(err);
-          should(result).eql(crypto.encrypt(testValue));
+          should(result).not.eql(testValue);
           encryptedClient.rpush('test', testValue, () => {
             encryptedClient.rpop('test', (err, result) => {
               should.ifError(err);
@@ -53,7 +56,7 @@ describe('Redis', () => {
       encryptedClient.lpush('test', testValue, () => {
         client.lpop('test', (err, result) => {
           should.ifError(err);
-          should(result).eql(crypto.encrypt(testValue));
+          should(result).not.eql(testValue);
           encryptedClient.lpush('test', testValue, () => {
             encryptedClient.lpop('test', (err, result) => {
               should.ifError(err);
@@ -84,7 +87,7 @@ describe('Redis', () => {
       encryptedClient.set('test', testValue, () => {
         client.get('test', (err, result) => {
           should.ifError(err);
-          should(result).eql(crypto.encrypt(testValue));
+          should(result).not.eql(testValue);
           encryptedClient.get('test', (err, result) => {
             should.ifError(err);
             should(result).eql(testValue);
@@ -99,7 +102,7 @@ describe('Redis', () => {
       encryptedClient.hset('hashname', 'test', testValue, () => {
         client.hget('hashname', 'test', (err, result) => {
           should.ifError(err);
-          should(result).eql(crypto.encrypt(testValue));
+          should(result).not.eql(testValue);
           encryptedClient.hget('hashname', 'test', (err, result) => {
             should.ifError(err);
             should(result).eql(testValue);

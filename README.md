@@ -33,18 +33,21 @@ const redis = new Redis();
 You just need to change it to look like this:
 
 ```javascript
-const Redis = require('ioredis-encrypted')('your encryption key', 'optional algorithm');
+const key = 'bfa6220e845a8248f65ebbddf753d6bcdbaab404693890f920c663adce2d7ede';
+const hmacKey = 'fdc6de8b925c8e4a120edac298139648e22c31f45d5ab5469ab0d696229338ad';
+
+const Redis = require('ioredis-encrypted')(key, hmacKey);
 const redis = new Redis();
 ```
 
-If you don't specify the second argument in the require line, you'll get the default from node-crypt, which is `aes-256-ctr`.
+Where key, and hmacKey are 32bit hex values.
 
 ## In Action
 
 Transparent to your application:
 ```
 $ node
-> const Redis = require('ioredis-encrypted')('password');
+> const Redis = require('ioredis-encrypted')(key, hmacKey);
 undefined
 > const redis = new Redis();
 undefined
