@@ -22,23 +22,23 @@
     "test": "./node_modules/grunt/bin/grunt mochaTest"
   },
   "devDependencies": {
-    "deride": "1.1.0",
-    "grunt": "1.0.1",
-    "grunt-contrib-jshint": "1.1.0",
-    "grunt-contrib-watch": "1.0.0",
+    "deride": "1.2.0",
+    "grunt": "1.0.4",
+    "grunt-contrib-jshint": "2.1.0",
+    "grunt-contrib-watch": "1.1.0",
     "grunt-mocha-istanbul": "5.0.2",
-    "grunt-mocha-test": "0.13.2",
+    "grunt-mocha-test": "0.13.3",
     "grunt-notify": "0.4.5",
     "istanbul": "0.4.5",
-    "mocha": "3.2.0",
-    "mocha-jenkins-reporter": "0.3.7",
-    "should": "13.1.0"
+    "mocha": "6.1.4",
+    "mocha-jenkins-reporter": "0.4.1",
+    "should": "13.2.3"
   },
   "keywords": [],
   "license": "Apache-2.0",
   "dependencies": {
-    "ioredis": "3.1.4",
-    "lodash": "4.17.4",
-    "node-crypt": "1.0.0"
+    "ioredis": "4.11.1",
+    "lodash": "4.17.11",
+    "node-crypt": "1.2.0"
   }
 }
