@@ -38,7 +38,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "ioredis": "4.11.1",
-    "lodash": "4.17.11",
+    "lodash": "4.17.19",
     "node-crypt": "1.2.0"
   }
 }
